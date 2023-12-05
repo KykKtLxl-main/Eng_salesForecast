@@ -1,6 +1,8 @@
 # selenium4
 # 待機処理の書き方 参考>>https://www.teru2teru.com/python/selenium/do-not-time-sleep/#google_vignette
 
+print(123)
+
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
