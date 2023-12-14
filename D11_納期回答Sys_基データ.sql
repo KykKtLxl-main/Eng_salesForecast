@@ -1,6 +1,6 @@
 
 -- 「qry11_コピーテーブル作成」「qry12_販売金額更新」
-create or replace table `lixil-workspace.an1_extEng_salesForecast.t11_noukikaitoSys_motoData`
+create or replace table `lixil-workspace.an1_extEng_salesForecast.t11_noukikaitouSys_motoData`
 as
   with noukikaitoSys_motoData as (
     select
@@ -85,8 +85,15 @@ as
       cast(t1.eigyou_sikiri as int64) as eigyou_sikiri,
       t1.cancel_hassei_hiyou,
       t1.tokki_jikou,
-      t1.exc_bikou1,
-      t1.exc_denpyo_syori_bi,
+      t1.eoc_bikou1,
+
+      -- EOC伝票処理日（Nullと''が混在）
+      if(
+        nullif(trim(t1.eoc_denpyo_syori_bi),'') is null ,
+        '1900-01-01',   -- 日付型のカラムにNullがセット出来ないので代替
+        cast(replace(substr(t1.eoc_denpyo_syori_bi, 1, 10), '/', '-') as date)
+      ) as eoc_denpyo_syori_bi,
+
       t1.eoc_bikou2, t1.eoc_bikou3, t1.eoc_bikou4,
       t1.area,
       t1.zone,
