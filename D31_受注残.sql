@@ -1,0 +1,36 @@
+  create or replace table `lixil-workspace.an1_extEng_salesForecast.t31_orderBacklog` as (
+
+  -- backlog_ as (
+    SELECT
+      YEAR_MONTH,
+      ZKSLV1GRU, ZKSLV1GRT,
+      ZKSLV2GRU, ZKSLV2GRT,
+      ZKSLV3GRU, ZKSLV3GRT,
+      ZKSLV4GRU, ZKSLV4GRT,
+      ZKSLV5GRU, ZKSLV5GRT,
+      ZKSLV6GRU, ZKSLV6GRT,
+      ZKSLV7GRU, ZKSLV7GRT,
+      ZZ_IRONG, ZZ_IRONG_TEXT,
+      T_GOODS_CLASS_CD, T_GOODS_CLASS_TEXT,
+      S_GOODS_CLASS_CD, S_GOODS_CLASS_TEXT,
+      Q_GOODS_CLASS_CD, Q_GOODS_CLASS_TEXT,
+      P_GOODS_CLASS_CD, P_GOODS_CLASS_TEXT,
+      N_GOODS_CLASS_CD, N_GOODS_CLASS_TEXT,
+      M_GOODS_CLASS_CD, M_GOODS_CLASS_TEXT,
+      K_GOODS_CLASS_CD, K_GOODS_CLASS_TEXT,
+      -- 0 as AMOUNT,
+      -- 0 as SALES_PROFIT,
+      -- 0 as STD_PROFIT,
+      DATA_DIV,
+      ORDER_BACKLOG_CONFIRM,
+      ORDER_BACKLOG_HOPE,
+      ORDER_BACKLOG_ALL,
+      ORDER_BACKLOG_EOM,
+      ORDER_AMOUNT
+    FROM `lixil-dwh.pii_an1_acct_sales_controlling.T_ORDER_BACKLOG_SUMMARY`
+    WHERE
+      T_GOODS_CLASS_CD = 'T41334'
+      -- and ZKSLV4GRU = 'B101400030'
+      AND YEAR_MONTH = FORMAT_DATE('%Y%m',CURRENT_DATE('Asia/Tokyo'))
+  -- ),
+  )

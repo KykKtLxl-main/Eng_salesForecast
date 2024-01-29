@@ -108,7 +108,7 @@ as
       t2.F_LEVEL_CD, t2.F_LEVEL_NAME,
       t2.B_LEVEL_CD, t2.B_LEVEL_NAME,
       t2.J_LEVEL_CD, t2.J_LEVEL_NAME
-    from `lixil-workspace.an1_extEng_salesForecast.t01_noukikaitouSystem_data` as t1
+    from `lixil-workspace.an1_extEng_salesForecast.t10_noukikaitouSystem_data` as t1
 
     -- 「発注元」が正しく入力されていないパターンが見つかったのでleft joinにする
     left join `lixil-dwh.pii_an1_bo.M_NEW_ORG_SYSTEM` as t2 on t1.hacchu_moto = t2.OFFICE_CD
