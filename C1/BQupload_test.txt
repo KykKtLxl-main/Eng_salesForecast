@@ -1,0 +1,6 @@
+bq load --replace --skip_leading_rows=1 --source_format=CSV ^
+lixil-workspace:an1_kyoko1kato.TESTUPLOAD ^
+\\Lxjjaq6628\d\prg_sandbox\Eng_salesForecast\C1\sampleData_4BQupload.csv ^
+code:string,^
+name:string,^
+price:string
